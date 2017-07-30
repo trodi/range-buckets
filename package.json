@@ -1,0 +1,40 @@
+{
+  "name": "range-buckets",
+  "version": "0.1.0",
+  "description": "Create nice buckets for a given range of data.",
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "tslint --config tslint.json *.ts",
+    "build": "tsc",
+    "postbuild": "npm run test",
+    "test": "nyc mocha *-spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trodi/range-buckets.git"
+  },
+  "keywords": [
+    "buckets",
+    "range"
+  ],
+  "author": "Troy McKinnon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/trodi/range-buckets/issues"
+  },
+  "homepage": "https://github.com/trodi/range-buckets#readme",
+  "devDependencies": {
+    "@types/chai": "^4.0.1",
+    "@types/mocha": "^2.2.41",
+    "@types/node": "^8.0.17",
+    "@types/underscore": "^1.8.1",
+    "chai": "^4.1.0",
+    "mocha": "^3.4.2",
+    "nyc": "^11.1.0",
+    "tslint": "^5.5.0",
+    "typescript": "^2.4.2"
+  },
+  "dependencies": {
+    "underscore": "^1.8.3"
+  }
+}
