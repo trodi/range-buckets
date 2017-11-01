@@ -8,8 +8,6 @@
  * https://support.microsoft.com/en-us/help/214075/xl2000-how-chart-axis-limits-are-determined
  */
 
-import * as _ from "underscore";
-
 /** Fix decimals to match the given unit. Avoids floating point math errors (e.g., modulo). */
 const round = (num: number, unit: number): number => {
     const decimals: string = unit.toString().split(".")[1];
@@ -103,8 +101,11 @@ export const getBuckets = (min: number, max: number, numBuckets: number): Bucket
     const begin: number = calcMin(min, max, unit);
     const end: number = calcMax(min, max, unit);
     const bucketSize: number = calcSize(begin, end, unit, numBuckets);
-    const buckets: Bucket[] = _.range(0, numBuckets)
-    .map( (i: number): Bucket => {
+    const range = Array(numBuckets);
+    for (let i = 0; i < numBuckets; i ++) {
+        range[i] = i;
+    }
+    const buckets: Bucket[] = range.map( (val: number, i: number) => {
         return {
             max: i === numBuckets - 1 ? end : round(begin + (bucketSize * (i + 1)), unit),
             min: round(begin + (bucketSize * i), unit),
@@ -113,9 +114,11 @@ export const getBuckets = (min: number, max: number, numBuckets: number): Bucket
     // NOTE: commented logging for easy testing and playing with output. Too verbose for
     // console.log(`Range-Buckets: data: min [${min} | max [${max}]`
     //     + ` | unit [${unit}] | begin [${begin}] | end [${end}] | size [${bucketSize}]`);
-    return _.chain(buckets).map( (b: Bucket): Bucket | undefined => {
+    return buckets.reduce((memo: Bucket[], b: Bucket): Bucket[] => {
+        // only keep buckets that are in the begin-end range
         if (b.min < end) {
-            return b; // only return buckets that are in the begin-end range
+            memo.push(b);
         }
-    }).compact().value() as Bucket[]; // compact will rm undefined
+        return memo;
+    }, []);
 };
