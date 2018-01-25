@@ -1,16 +1,18 @@
-# range-buckets
-Create nice buckets for a given range of data.
+# range-buckets [![Build Status](https://travis-ci.org/trodi/range-buckets.svg)](https://travis-ci.org/trodi/range-buckets)
+> *Create nice buckets for a given range of data.*
 
 ## Install
-`npm install trodi/range-buckets`
+Future: *(Currently not published on npm)*
+
+`npm install @trodi/range-buckets`
 
 ## Usage
-* You'll need to build first.
-
+Code:
 ```typescript
 import * as Buckets from "range-buckets";
 Buckets.getBuckets(0, 100, 3);
 ```
+Output:
 ```typescript
 [ { min: 0, max: 40, },
   { min: 40, max: 80, },
