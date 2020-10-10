@@ -1,13 +1,3 @@
-/**
- * This module provides means to split a data range into n number of smaller
- * ranges or "buckets". You can use this to create subfilters for data.
- *
- * The algorithmns used are based on how Excel produces smart chart axis.
- *
- * Microsoft Article ID: 214075
- * https://support.microsoft.com/en-us/help/214075/xl2000-how-chart-axis-limits-are-determined
- */
-
 /** Fix decimals to match the given unit. Avoids floating point math errors (e.g., modulo). */
 const round = (num: number, unit: number): number => {
     const decimals: string = unit.toString().split(".")[1];
