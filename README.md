@@ -36,7 +36,7 @@ Output:
 ## Publish
 
 - `npm version` <patch|minor|major>
-- `npm publish`
+- `npm publish --access public`
 - Commit and push changes to git
 
 ## License

@@ -3,12 +3,17 @@
   "version": "1.0.0",
   "description": "Create nice buckets for a given range of data.",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "prebuild": "tslint --config tslint.json *.ts",
     "build": "tsc",
     "pretest": "npm run build",
     "test": "nyc mocha *-spec.js"
   },
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/trodi/range-buckets.git"
