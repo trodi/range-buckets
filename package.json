@@ -8,7 +8,8 @@
     "prebuild": "tslint --config tslint.json *.ts",
     "build": "tsc",
     "pretest": "npm run build",
-    "test": "nyc mocha *-spec.js"
+    "test": "nyc mocha *-spec.js",
+    "prepublish": "npm run build"
   },
   "files": [
     "index.js",
