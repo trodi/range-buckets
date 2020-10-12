@@ -1,6 +1,6 @@
 {
   "name": "@trodi/range-buckets",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create nice buckets for a given range of data.",
   "main": "index.js",
   "types": "index.d.ts",
